@@ -50,19 +50,19 @@ kotlin {
 }
 
 android {
-    namespace = "com.rkzmn.kmp.unsplashgallery"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = ProjectConfigs.APP_ID
+    compileSdk = ProjectConfigs.Android.SDK_COMPILE
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "com.rkzmn.kmp.unsplashgallery"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfigs.APP_ID
+        minSdk = ProjectConfigs.Android.SDK_MIN
+        targetSdk = ProjectConfigs.Android.SDK_TARGET
+        versionCode = ProjectConfigs.VERSION_CODE
+        versionName = ProjectConfigs.VERSION_NAME
     }
     packaging {
         resources {
@@ -89,8 +89,8 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.rkzmn.kmp.unsplashgallery"
-            packageVersion = "1.0.0"
+            packageName = ProjectConfigs.APP_ID
+            packageVersion = ProjectConfigs.VERSION_NAME
         }
     }
 }
