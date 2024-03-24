@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 kotlin {
@@ -42,6 +43,18 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.serialization)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.collections.immutable)
+
+            implementation(libs.ktor.core)
+            implementation(libs.ktor.logging)
+            implementation(libs.ktor.kotlinx.serialization)
+            implementation(libs.ktor.content.negotiation)
+
+            implementation(libs.logging.napier)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
