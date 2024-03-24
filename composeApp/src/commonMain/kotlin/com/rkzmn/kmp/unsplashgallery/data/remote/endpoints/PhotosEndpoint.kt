@@ -1,6 +1,6 @@
 package com.rkzmn.kmp.unsplashgallery.data.remote.endpoints
 
-import com.rkzmn.kmp.unsplashgallery.data.remote.dtos.UnsplashImageDto
+import com.rkzmn.kmp.unsplashgallery.data.remote.dto.UnsplashImageDto
 import com.rkzmn.kmp.unsplashgallery.data.resource.Resource
 
 typealias UnsplashImageListResource = Resource<List<UnsplashImageDto>>
