@@ -5,6 +5,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.compositionLocalOf
 
 @Composable
 fun UnsplashGalleryTheme(
@@ -14,10 +17,27 @@ fun UnsplashGalleryTheme(
     MaterialTheme(
         colorScheme = if (!useDarkTheme) LightColors else DarkColors,
         typography = poppinsTypography,
-        content = content
+        content = {
+            CompositionLocalProvider(LocalDarkThemeFlag provides useDarkTheme) {
+                content()
+            }
+        }
     )
 }
 
+// /////////////////////////////////////////////////////////////////////////
+// CompositionLocals
+// /////////////////////////////////////////////////////////////////////////
+val LocalDarkThemeFlag = compositionLocalOf { false }
+
+val isAppInDarkTheme: Boolean
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalDarkThemeFlag.current
+
+// /////////////////////////////////////////////////////////////////////////
+// Color Schemes
+// /////////////////////////////////////////////////////////////////////////
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,

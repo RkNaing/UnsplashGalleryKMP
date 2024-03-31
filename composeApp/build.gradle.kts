@@ -34,7 +34,12 @@ kotlin {
         
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.compose.ui.tooling)
             implementation(libs.androidx.activity.compose)
+
+            implementation(libs.kotlinx.coroutines.android)
+            implementation(libs.ktor.okhttp)
+
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -54,10 +59,13 @@ kotlin {
             implementation(libs.ktor.kotlinx.serialization)
             implementation(libs.ktor.content.negotiation)
 
+            implementation(libs.kamel.image)
             implementation(libs.logging.napier)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.ktor.okhttp)
+            implementation(libs.kotlinx.coroutines.swing)
         }
     }
 }
